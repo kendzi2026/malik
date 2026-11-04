@@ -1,1 +1,1886 @@
+<!DOCTYPE html>
+<html lang="pt">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Juntos por Malik — Por um amanhã melhor</title>
+
+    <!-- =====================================================================
+     CONFIGURAÇÃO GERAL  (edite apenas aqui)
+     Coloque o ID do seu Pixel em metaPixelId (só números).
+     ===================================================================== -->
+    <script>
+        window.CONFIG = {
+            metaPixelId: "1935464907093084",
+            confirmEvent: "Donate", // evento padrão enviado ao clicar "JÁ FIZ A MINHA DOAÇÃO"
+            debug: false // true = mostra os eventos no console do navegador
+        };
+    </script>
+
+    <!-- META PIXEL (carregado uma única vez) -->
+    <script>
+        (function() {
+            var id = String(window.CONFIG.metaPixelId || "");
+            window.__metaPixelOn = /^\d{10,20}$/.test(id);
+            if (!window.__metaPixelOn || window.fbq) return;
+            ! function(f, b, e, v, n, t, s) {
+                if (f.fbq) return;
+                n = f.fbq = function() {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = !0;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = !0;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window,
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', id);
+            fbq('track', 'PageView');
+        })();
+    </script>
+
+    <!-- Poster do hero: carrega logo no início -->
+    <link rel="preload" as="image" href="https://i.ibb.co/Y76MKMk9/img1.png" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #ef3b3b;
+            --red-dark: #d12a2e;
+            --green: #18a957;
+            --green-dark: #0f8a43;
+            --green-glow: rgba(24, 169, 87, .45);
+            --navy: #0f2747;
+            --ink: #1d2b3f;
+            --muted: #5b6778;
+            --bg: #fffdfa;
+            --bg-alt: #f7f3ee;
+            --card: #ffffff;
+            --line: #eadfd5;
+            --blush: #fdecec;
+            --dark: #14161a;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --navy: #f2f5fa;
+                --ink: #e4e9f1;
+                --muted: #a3aebf;
+                --bg: #15181d;
+                --bg-alt: #1b1f26;
+                --card: #222731;
+                --line: #303744;
+                --blush: #2a2024;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --navy: #f2f5fa;
+            --ink: #e4e9f1;
+            --muted: #a3aebf;
+            --bg: #15181d;
+            --bg-alt: #1b1f26;
+            --card: #222731;
+            --line: #303744;
+            --blush: #2a2024;
+        }
+
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+            scroll-behavior: smooth
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--ink);
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 28px
+        }
+
+        :focus-visible {
+            outline: 3px solid #ffd54a;
+            outline-offset: 3px
+        }
+
+        svg {
+            flex: none
+        }
+
+        /* ---------- CTA verde ---------- */
+
+        .cta {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(180deg, #22c068, var(--green) 55%, var(--green-dark));
+            color: #fff;
+            font-weight: 800;
+            font-size: 21px;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            padding: 20px 22px 20px 30px;
+            border-radius: 999px;
+            border: 0;
+            cursor: pointer;
+            box-shadow: 0 12px 30px var(--green-glow), inset 0 -3px 0 rgba(0, 0, 0, .14), inset 0 2px 0 rgba(255, 255, 255, .28);
+            animation: pulse 2.2s ease-out infinite;
+            transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 18px 38px var(--green-glow), inset 0 -3px 0 rgba(0, 0, 0, .14), inset 0 2px 0 rgba(255, 255, 255, .28)
+        }
+
+        .cta:active {
+            transform: translateY(1px) scale(.99)
+        }
+
+        .cta .heart {
+            width: 30px;
+            height: 30px
+        }
+
+        .cta .go {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--green-dark);
+            margin-left: 6px;
+        }
+
+        .cta .go svg {
+            width: 24px;
+            height: 24px
+        }
+
+        .cta-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 14px 0 0 8px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, .88)
+        }
+
+        .cta-note svg {
+            width: 16px;
+            height: 16px;
+            color: #7fe3a8
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 12px 30px var(--green-glow), 0 0 0 0 rgba(24, 169, 87, .55), inset 0 -3px 0 rgba(0, 0, 0, .14), inset 0 2px 0 rgba(255, 255, 255, .28)
+            }
+            70%,
+            100% {
+                box-shadow: 0 12px 30px var(--green-glow), 0 0 0 22px rgba(24, 169, 87, 0), inset 0 -3px 0 rgba(0, 0, 0, .14), inset 0 2px 0 rgba(255, 255, 255, .28)
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .cta {
+                animation: none
+            }
+            html {
+                scroll-behavior: auto
+            }
+        }
+
+        /* ---------- Hero ---------- */
+
+        .hero {
+            position: relative;
+            background: #0e0e10;
+            color: #fff;
+            overflow: hidden;
+            min-height: 620px
+        }
+
+        .hero-photo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 50%;
+            background: #0e0e10;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, #0e0e10 0%, #0e0e10 40%, rgba(14, 14, 16, .78) 60%, rgba(14, 14, 16, 0) 85%)
+        }
+
+        .nav {
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 22px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .brand svg {
+            width: 44px;
+            height: 44px
+        }
+
+        .brand b {
+            display: block;
+            font-size: 18px;
+            letter-spacing: .04em;
+            line-height: 1.1
+        }
+
+        .brand small {
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--red);
+            letter-spacing: .02em;
+            text-transform: uppercase
+        }
+
+        .nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 500
+        }
+
+        .nav a {
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            display: inline-block
+        }
+
+        .nav a.on {
+            border-color: var(--red)
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 3;
+            padding: 62px 0 70px;
+            max-width: 520px
+        }
+
+        .kicker {
+            font-size: 14px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin: 0 0 14px;
+            color: #e9e9ee
+        }
+
+        .hero h1 {
+            margin: 0 0 20px;
+            font-size: clamp(32px, 4.4vw, 42px);
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -.01em
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--red)
+        }
+
+        .hero p.lead {
+            font-size: 16.5px;
+            color: #f1f1f4;
+            margin: 0 0 30px;
+            max-width: 460px
+        }
+
+        .hand {
+            position: absolute;
+            z-index: 3;
+            right: 42%;
+            top: 34%;
+            font-family: Caveat, "Segoe Script", cursive;
+            font-size: 34px;
+            line-height: 1.05;
+            transform: rotate(-8deg);
+            text-align: center;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, .6)
+        }
+
+        .hand svg {
+            display: block;
+            margin: 6px auto 0;
+            width: 110px;
+            height: 28px
+        }
+
+        /* ---------- História ---------- */
+
+        .story {
+            background: var(--bg);
+            padding: 26px 0 36px
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.05fr .85fr;
+            gap: 34px;
+            align-items: center
+        }
+
+        .story-photo {
+            aspect-ratio: 1/0.95;
+            overflow: hidden;
+            clip-path: polygon(2% 6%, 9% 1%, 18% 4%, 30% 0, 44% 3%, 58% 0, 72% 3%, 86% 0, 96% 5%, 99% 14%, 97% 28%, 100% 42%, 97% 58%, 100% 72%, 97% 88%, 92% 98%, 80% 100%, 66% 97%, 52% 100%, 38% 97%, 24% 100%, 12% 97%, 3% 99%, 0 86%, 3% 70%, 0 54%, 3% 38%, 0 22%)
+        }
+
+        .story-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 18%
+        }
+
+        .eyebrow {
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            margin: 0 0 8px
+        }
+
+        .story h2 {
+            margin: 0 0 14px;
+            font-size: 27px;
+            line-height: 1.15;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .story p {
+            margin: 0 0 14px;
+            color: var(--ink);
+            font-size: 15.5px
+        }
+
+        .story p.soft {
+            color: var(--muted)
+        }
+
+        .quote {
+            background: var(--blush);
+            border-radius: 18px;
+            padding: 26px 22px 22px;
+            text-align: center;
+            position: relative
+        }
+
+        .quote .qm {
+            position: absolute;
+            top: 10px;
+            left: 18px;
+            font-size: 54px;
+            line-height: 1;
+            color: var(--red);
+            font-weight: 800;
+            font-family: Georgia, serif
+        }
+
+        .quote p {
+            font-style: italic;
+            font-size: 16px;
+            margin: 16px 0 8px;
+            color: var(--ink)
+        }
+
+        .quote svg {
+            width: 92px;
+            height: 22px;
+            display: block;
+            margin: 0 auto
+        }
+
+        /* ---------- Situação atual ---------- */
+
+        .sit {
+            background: var(--blush);
+            padding: 34px 0 38px
+        }
+
+        .sit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 34px;
+            align-items: center
+        }
+
+        .sit-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            max-width: 460px;
+            margin: 0 auto;
+            width: 100%
+        }
+
+        .sit-photos img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            background: var(--line)
+        }
+
+        .sit h2 {
+            margin: 0 0 14px;
+            font-size: 25px;
+            line-height: 1.15;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .sit p {
+            margin: 0 0 12px;
+            font-size: 15.5px;
+            color: var(--ink)
+        }
+
+        .sit p.strong {
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        /* ---------- Como ajuda ---------- */
+
+        .how {
+            background: var(--bg-alt);
+            padding: 42px 0 48px;
+            text-align: center
+        }
+
+        .how::before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--red);
+            margin: -42px auto 36px
+        }
+
+        .how h2 {
+            margin: 0 0 6px;
+            font-size: 25px;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .how .sub {
+            margin: 0 0 26px;
+            font-size: 14px;
+            color: var(--ink)
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 22px 14px 20px;
+            box-shadow: 0 2px 10px rgba(30, 20, 10, .05)
+        }
+
+        .card svg {
+            width: 44px;
+            height: 44px;
+            color: var(--red);
+            margin: 0 auto 10px
+        }
+
+        .card h3 {
+            margin: 0 0 6px;
+            font-size: 15px;
+            color: var(--navy);
+            font-weight: 600
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--ink)
+        }
+
+        /* ---------- Transparência ---------- */
+
+        .trans {
+            background: linear-gradient(90deg, rgba(18, 19, 22, .97) 45%, rgba(18, 19, 22, .82)), #16181c;
+            color: #fff;
+            padding: 26px 0 30px
+        }
+
+        .trans-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 40px;
+            align-items: start
+        }
+
+        .trans h2 {
+            margin: 0 0 10px;
+            font-size: 21px;
+            font-weight: 800
+        }
+
+        .trans p {
+            margin: 0 0 14px;
+            font-size: 14.5px;
+            color: #eceef2
+        }
+
+        .trans details {
+            border-top: 1px solid rgba(255, 255, 255, .16)
+        }
+
+        .trans details:last-of-type {
+            border-bottom: 1px solid rgba(255, 255, 255, .16)
+        }
+
+        .trans summary {
+            cursor: pointer;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            font-size: 14.5px;
+            font-weight: 600
+        }
+
+        .trans details p {
+            margin: 0 0 12px;
+            font-size: 14px;
+            color: #d9dce3
+        }
+
+        .meta {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 14px;
+            padding: 18px 20px 16px
+        }
+
+        .meta small {
+            font-size: 12.5px;
+            color: #d9dce3
+        }
+
+        .meta .goal {
+            font-size: 28px;
+            font-weight: 800;
+            margin: 2px 0 12px
+        }
+
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .bar {
+            flex: 1;
+            height: 18px;
+            border-radius: 99px;
+            background: #3a3d43;
+            overflow: hidden
+        }
+
+        .bar i {
+            display: block;
+            height: 100%;
+            width: 0;
+            border-radius: 99px;
+            background: linear-gradient(90deg, #ff5757, var(--red));
+            transition: width 1.4s cubic-bezier(.2, .8, .2, 1)
+        }
+
+        .bar-row b {
+            font-size: 12.5px
+        }
+
+        .meta .nums {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #d9dce3
+        }
+
+        .meta .nums strong {
+            display: block;
+            font-size: 15px;
+            color: #fff;
+            margin-top: 2px
+        }
+
+        .meta .nums div:last-child {
+            text-align: right
+        }
+
+        .meta .note {
+            display: block;
+            margin-top: 12px;
+            font-size: 12px;
+            color: #d9dce3
+        }
+
+        /* ---------- Métodos ---------- */
+
+        .methods {
+            background: var(--bg);
+            padding: 26px 0 30px;
+            scroll-margin-top: 10px
+        }
+
+        .m-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.75fr;
+            gap: 30px;
+            align-items: center
+        }
+
+        .methods h2 {
+            margin: 0 0 8px;
+            font-size: 21px;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .methods h2::after {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--red);
+            margin-top: 8px
+        }
+
+        .methods .sub {
+            margin: 12px 0 0;
+            font-size: 13.5px;
+            color: var(--ink)
+        }
+
+        .m-btns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px
+        }
+
+        .m-btn {
+            background: var(--card);
+            border: 2px solid var(--green);
+            border-radius: 10px;
+            padding: 16px 8px 12px;
+            font: inherit;
+            color: var(--navy);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            min-height: 84px;
+            justify-content: center;
+            transition: box-shadow .15s, transform .15s
+        }
+
+        .m-btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .m-btn[aria-pressed="true"] {
+            box-shadow: 0 0 0 3px rgba(24, 169, 87, .2)
+        }
+
+        .m-btn svg {
+            width: 30px;
+            height: 30px
+        }
+
+        .logo-mpesa {
+            font-weight: 800;
+            font-size: 14px;
+            color: #e60000;
+            line-height: 1
+        }
+
+        .logo-mpesa i {
+            font-style: normal;
+            color: #3aa935
+        }
+
+        .logo-emola {
+            font-weight: 800;
+            font-size: 16px;
+            color: #f58220;
+            line-height: 1
+        }
+
+        .logo-emola i {
+            font-style: normal;
+            color: #1c4fa3
+        }
+
+        .steps {
+            list-style: none;
+            margin: 22px 0 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px
+        }
+
+        .steps li {
+            background: var(--bg-alt);
+            border-radius: 10px;
+            padding: 12px 12px 12px 48px;
+            position: relative;
+            font-size: 13.5px;
+            color: var(--ink);
+            min-height: 48px;
+            display: flex;
+            align-items: center
+        }
+
+        .steps li b {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--green);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 13px
+        }
+
+        .steps-note {
+            margin: 10px 0 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .pay {
+            display: none;
+            margin-top: 20px;
+            background: var(--bg-alt);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 20px 22px
+        }
+
+        .pay.show {
+            display: block
+        }
+
+        .pay h3 {
+            margin: 0 0 6px;
+            font-size: 16px;
+            color: var(--navy)
+        }
+
+        .pay p {
+            margin: 0 0 12px;
+            font-size: 14px
+        }
+
+        .copy-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center
+        }
+
+        .copy-row code {
+            background: var(--card);
+            border: 2px solid var(--green);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: .04em;
+            color: var(--navy);
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            word-break: break-all;
+            user-select: all;
+            -webkit-user-select: all
+        }
+
+        .copy-row button {
+            background: var(--green);
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px 16px;
+            min-height: 44px;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .copy-row button:hover {
+            background: var(--green-dark)
+        }
+
+        .pay small {
+            display: block;
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 12.5px
+        }
+
+        /* ---------- Ações extra (WhatsApp / confirmação) ---------- */
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #25d366;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 8px;
+            padding: 11px 18px;
+            min-height: 44px
+        }
+
+        .btn-wa:hover {
+            background: #1fb558
+        }
+
+        .btn-wa svg {
+            width: 20px;
+            height: 20px
+        }
+
+        .pay-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 14px
+        }
+
+        .confirm {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px dashed var(--line)
+        }
+
+        .confirm p {
+            margin: 0 0 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .btn-confirm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            min-height: 54px;
+            padding: 16px 22px;
+            border: 0;
+            border-radius: 999px;
+            cursor: pointer;
+            font: inherit;
+            font-weight: 800;
+            font-size: 17px;
+            letter-spacing: .03em;
+            text-transform: uppercase;
+            color: #fff;
+            background: linear-gradient(180deg, #22c068, var(--green) 55%, var(--green-dark));
+            box-shadow: 0 8px 22px var(--green-glow)
+        }
+
+        .btn-confirm:active {
+            transform: translateY(1px)
+        }
+
+        .btn-confirm svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .confirm small {
+            text-align: center
+        }
+
+        .thanks {
+            display: none;
+            margin-top: 20px;
+            background: var(--blush);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 26px 22px;
+            text-align: center
+        }
+
+        .thanks.show {
+            display: block
+        }
+
+        .thanks h3 {
+            margin: 0 0 8px;
+            font-size: 22px;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .thanks p {
+            margin: 0 0 14px;
+            font-size: 15px;
+            color: var(--ink)
+        }
+
+        .thanks small {
+            display: block;
+            margin-top: 12px;
+            color: var(--muted);
+            font-size: 12.5px
+        }
+
+        /* ---------- Perguntas frequentes ---------- */
+
+        .faq {
+            background: var(--bg-alt);
+            padding: 28px 0 32px
+        }
+
+        .faq .wrap {
+            max-width: 760px
+        }
+
+        .faq h2 {
+            margin: 0 0 12px;
+            font-size: 21px;
+            color: var(--navy);
+            font-weight: 800
+        }
+
+        .faq details {
+            border-top: 1px solid var(--line)
+        }
+
+        .faq details:last-child {
+            border-bottom: 1px solid var(--line)
+        }
+
+        .faq summary {
+            cursor: pointer;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--navy)
+        }
+
+        .faq details p {
+            margin: 0 0 14px;
+            font-size: 14.5px;
+            color: var(--ink)
+        }
+
+        /* ---------- Final ---------- */
+
+        .final {
+            position: relative;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(100deg, #2a1608 0%, #7a3a0c 45%, #d9731f 100%)
+        }
+
+        .final .wrap {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px;
+            align-items: center;
+            min-height: 166px;
+            padding-top: 22px;
+            padding-bottom: 22px
+        }
+
+        .final-text {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            font-family: Caveat, "Segoe Script", cursive;
+            font-size: 30px;
+            line-height: 1.1;
+            transform: rotate(-3deg)
+        }
+
+        .final-text svg {
+            width: 38px;
+            height: 38px;
+            flex: none
+        }
+
+        .final-text span {
+            color: #ff4d4d;
+            display: block;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, .35);
+            font-weight: 700
+        }
+
+        .final-cta {
+            text-align: center
+        }
+
+        .final-cta p {
+            margin: 14px 0 0;
+            font-size: 13.5px
+        }
+
+        .final .cta {
+            font-size: 22px;
+            padding: 22px 24px 22px 32px
+        }
+
+        footer {
+            background: #13161b;
+            color: #fff;
+            padding: 20px 0
+        }
+
+        footer .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+
+        footer .brand svg {
+            width: 38px;
+            height: 38px
+        }
+
+        footer .brand b {
+            font-size: 15px
+        }
+
+        footer .brand small {
+            color: #c5c9d2;
+            font-size: 10px
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 13px
+        }
+
+        .soc {
+            display: flex;
+            gap: 22px;
+            padding-left: 22px;
+            border-left: 2px solid var(--red)
+        }
+
+        .soc svg {
+            width: 20px;
+            height: 20px
+        }
+
+        /* ---------- Mobile ---------- */
+
+        @media (max-width:860px) {
+            .wrap {
+                padding: 0 20px
+            }
+            .nav ul {
+                display: none
+            }
+            .hero {
+                min-height: 0
+            }
+            .hero-photo {
+                position: relative;
+                width: 100%;
+                height: auto;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                padding: 16px 20px 0;
+                background: #0e0e10;
+            }
+            .hand {
+                top: 84px
+            }
+            .hero::after {
+                display: none;
+            }
+            .hero-inner {
+                padding: 30px 0 44px;
+                max-width: none
+            }
+            .hand {
+                right: 6%;
+                top: 150px;
+                font-size: 26px
+            }
+            .hand svg {
+                width: 84px
+            }
+            .cta {
+                font-size: 19px;
+                padding: 18px 18px 18px 24px
+            }
+            .story-grid,
+            .sit-grid,
+            .trans-grid,
+            .m-grid,
+            .final .wrap {
+                grid-template-columns: 1fr
+            }
+            .story-photo {
+                max-width: 380px;
+                margin: 0 auto;
+                width: 100%
+            }
+            .cards {
+                grid-template-columns: 1fr 1fr
+            }
+            .m-btns,
+            .steps {
+                grid-template-columns: 1fr 1fr
+            }
+            .final-text {
+                font-size: 26px;
+                transform: none
+            }
+            footer .wrap {
+                justify-content: center;
+                text-align: center
+            }
+            .soc {
+                border: 0;
+                padding: 0
+            }
+            .copy-row button,
+            .btn-wa {
+                width: 100%
+            }
+        }
+
+        @media (max-width:420px) {
+            .cta {
+                width: 100%;
+                justify-content: space-between;
+                font-size: 18px
+            }
+            .btn-confirm {
+                font-size: 15px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 48 48"><path d="M24 40C12 31 5 24.5 5 16.5 5 11 9 7 14 7c4 0 7.500 2.300 10 6 2.500-3.700 6-6 10-6 5 0 9 4 9 9.500C43 24.500 36 31 24 40Z" fill="#ef3b3b"/><path d="M13 27c4 1 7 3 11 3s7-2 11-3" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round"/><path d="M18 22l4 3 4-3 4 3" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 42c6 3 14 3 20 0" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round" opacity=".9"/></symbol>
+    <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21s-8-5.300-8-11.200C4 6.600 6.300 4.500 9 4.500c1.400 0 2.600.7 3 1.700.4-1 1.600-1.700 3-1.700 2.700 0 5 2.100 5 5.300C20 15.700 12 21 12 21Z" fill="currentColor"/></symbol>
+    <symbol id="wa" viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 19.800L3 29l6.400-2A13 13 0 1 0 16 3Z" fill="currentColor"/><path d="M11.500 10c.4-.8 1-.7 1.400-.6l.9 2.100c.1.300 0 .600-.2.900l-.6.700c.8 1.500 2 2.600 3.600 3.400l.8-.9c.2-.2.500-.3.800-.2l2 .9c.2.100.3.600 0 1.100-.5.900-1.500 1.400-2.600 1.200-3.300-.7-6.200-3.500-7-6.800-.1-.6.100-1.300.9-1.800Z" fill="#25d366"/></symbol>
+  </defs>
+</svg>
+
+    <header class="hero" id="inicio">
+        <div class="wrap">
+            <nav class="nav" aria-label="Principal">
+                <a class="brand" href="#inicio"><svg><use href="#logo"/></svg><span><b>JUNTOS</b><small>Por Malik</small></span></a>
+                <ul>
+                    <li><a class="on" href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#impacto">Impacto</a></li>
+                    <li><a href="#doar">Doar</a></li>
+                </ul>
+            </nav>
+            <div class="hero-inner">
+                <p class="kicker">Campanha de solidariedade — Cidade da Beira</p>
+                <h1>Para nós pode ser apenas uma pequena ajuda. <span>Para o pequeno Malik, pode significar a vida.</span></h1>
+                <p class="lead">O Malik é natural da Beira e enfrenta uma dura batalha contra a Síndrome de Budd-Chiari. Trancado em casa devido às fortes dores e complicações, ele precisa urgentemente de tratamento especializado. Contamos com a união do nosso povo.</p>
+                <a class="cta" href="#doar" data-go data-loc="hero">
+        <svg class="heart" aria-hidden="true"><use href="#heart"/></svg>
+        Quero ajudar o Malik
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+                <div class="cta-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.500 8-8 9-4.500-1-8-4-8-9V6z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg>Rápido
+                    e simples. Cada pessoa decide quanto deseja doar</div>
+            </div>
+        </div>
+
+        <!-- HERO VSL DO VTURB -->
+        <div class="hero-photo">
+            <vturb-smartplayer id="vid-6aeb1067e0a2f045bbcd953c" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/7d290d8f-04da-42fd-a63f-3955a833da2a/players/6aeb1067e0a2f045bbcd953c/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+        </div>
+
+        <div class="hand" aria-hidden="true">Toda ajuda<br>faz a diferença.
+            <svg viewBox="0 0 110 28" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M2 20h36M72 20h36"/><path d="M55 25s-9-6-9-12c0-3 2-4.500 4-4.500 2.500 0 4 2 5 3.500 1-1.500 2.500-3.500 5-3.500 2 0 4 1.500 4 4.500 0 6-9 12-9 12Z"/></svg>
+        </div>
+    </header>
+
+    <section class="story" id="sobre">
+        <div class="wrap story-grid">
+            <div class="story-photo"><img src="https://i.ibb.co/pBSXCscv/retrato.png" alt="Retrato do Malik" loading="lazy" decoding="async"></div>
+            <div>
+                <p>⚠️ CAMPANHA DE EMERGÊNCIA: Faltam apenas 13.660 MT para cobrir o tratamento médico do Malik na Beira. O tempo está a esgotar-se.</p>
+            </div>
+            <div class="quote">
+                <span class="qm" aria-hidden="true">“</span>
+                <p>O Malik não precisa de muito. Apenas de pessoas com um grande coração para vencer esta doença.”</p>
+                <svg viewBox="0 0 92 22" fill="none" stroke="#ef3b3b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 18c20 1 28-4 44-4s28 4 44-4"></path></svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="sit" id="situacao">
+        <div class="wrap sit-grid">
+            <div class="sit-photos">
+                <img src="https://i.ibb.co/Y76MKMk9/img1.png" width="566" height="1054" loading="lazy" decoding="async" alt="Ilustração médica ou foto de apoio do Malik">
+                <img src="https://i.ibb.co/3m0L05Rw/img2.png" width="593" height="1030" loading="lazy" decoding="async" alt="Menino Malik precisando de cuidados médicos">
+            </div>
+            <div>
+                <p class="eyebrow">Situação atual</p>
+                <h2>A luta do Malik contra a Síndrome de Budd-Chiari</h2>
+                <p>Diagnosticado com a Síndrome de Budd-Chiari — uma condição rara e grave que afeta o fluxo sanguíneo do fígado —, o pequeno Malik tem enfrentado dores intensas na sua cidade natal, a Beira. Enquanto outras crianças correm e vão à escola, ele passa os dias debilitado em casa, sob o olhar aflito da família. Os medicamentos especializados e exames necessários não estão disponíveis na rede pública e precisam ser adquiridos com urgência na rede privada.</p>
+                <p>A família já esgotou todos os seus recursos. Se cada um de nós contribuir com uma pequena ajuda, conseguiremos custear o tratamento do Malik e devolver o sorriso a este menino.</p>
+                <p class="strong">Ele precisa da nossa solidariedade. Agora.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="how" id="impacto">
+        <div class="wrap">
+            <h2>Como a sua doação ajuda o Malik</h2>
+            <p class="sub">Cada pessoa decide quanto deseja contribuir. Qualquer valor faz a diferença e é direcionado diretamente para os cuidados de saúde e bem-estar do Malik.</p>
+            <div class="cards">
+                <div class="card">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24h36c0 9-7 16-18 16S6 33 6 24Z"/><path d="M13 24c0-5 4-8 7-8 1-3 4-5 8-4 4 0 7 3 7 6 3 0 4 3 4 6"/><path d="M18 12l2-4M30 9l1-4M24 12v-4" /></svg>
+                    <h3>Alimentação</h3>
+                    <p>Nutrição adequada para o tratamento</p>
+                </div>
+                <div class="card">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="17"/><path d="M24 15v18M15 24h18"/></svg>
+                    <h3>Medicamentos</h3>
+                    <p>Remédios vitais para a síndrome</p>
+                </div>
+                <div class="card">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7 5 13l4 10 6-2v20h18V21l6 2 4-10-12-6c-1 4-4 6-7 6s-6-2-7-6Z"/></svg>
+                    <h3>Apoio Clínico</h3>
+                    <p>Exames e consultas na Beira</p>
+                </div>
+                <div class="card">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.200" stroke-linejoin="round"><path d="M24 41S6 30 6 17c0-6 4.500-10 10-10 3.500 0 6.500 2 8 5 1.500-3 4.500-5 8-5 5.500 0 10 4 10 10 0 13-18 24-18 24Z"/></svg>
+                    <h3>Apoio geral</h3>
+                    <p>Cobre necessidades urgentes da família</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="trans">
+        <div class="wrap trans-grid">
+            <div>
+                <h2>Transparência</h2>
+                <p>Queremos que saiba exatamente para onde vai a sua ajuda.</p>
+                <details>
+                    <summary>Quem recebe o dinheiro?</summary>
+                    <p>As doações vão diretamente para os contactos oficiais da campanha indicados em “Escolha o seu método de doação” (M-Pesa, e-Mola e conta bancária, com o titular de cada um). Nenhum pagamento é processado dentro deste site.</p>
+                </details>
+                <details>
+                    <summary>Para que será usado?</summary>
+                    <p>Na compra de medicamentos específicos, exames médicos e suporte alimentar para o Malik na cidade da Beira.</p>
+                </details>
+                <details>
+                    <summary>Como são verificadas as transferências?</summary>
+                    <p>A nossa equipa confere cada transferência manualmente. O valor arrecadado só é atualizado depois dessa verificação. O botão “Já fiz a minha doação” é apenas um aviso seu e não confirma o pagamento automático.</p>
+                </details>
+                <details>
+                    <summary>O que partilhamos?</summary>
+                    <p>Relatórios periódicos, comprovativos de despesas médicas e atualizações sobre o estado de saúde do Malik.</p>
+                </details>
+            </div>
+            <div class="meta">
+                <small>Meta da campanha</small>
+                <div class="goal" id="goal">19.000 MT</div>
+                <div class="bar-row">
+                    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="28" aria-label="Progresso da campanha"><i id="fill"></i></div><b id="pct">28%</b></div>
+                <div class="nums">
+                    <div>Arrecadado<strong id="raised">5.340 MT</strong></div>
+                    <div>Falta<strong id="left">13.660 MT</strong></div>
+                </div>
+                <span class="note">Valores atualizados manualmente, só depois de verificadas as transferências.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="methods" id="doar">
+        <div class="wrap m-grid">
+            <div>
+                <h2>Escolha o seu método de doação</h2>
+                <p class="sub">Doe o valor que desejar para ajudar o Malik. É rápido, seguro e fácil. Juntos somos mais fortes!</p>
+            </div>
+            <div>
+                <div class="m-btns" role="group" aria-label="Métodos de doação">
+                    <button type="button" class="m-btn" data-m="mpesa" aria-pressed="false"><span class="logo-mpesa"><i>m</i>-Pesa</span>M-Pesa</button>
+                    <button type="button" class="m-btn" data-m="emola" aria-pressed="false"><span class="logo-emola"><i>e</i>-mola</span>e-Mola</button>
+                    <button type="button" class="m-btn" data-m="banco" aria-pressed="false"><svg viewBox="0 0 32 32" fill="none" stroke="#1c5fa8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12 16 5l13 7zM6 14v10M12 14v10M20 14v10M26 14v10M3 27h26"/></svg>Transferência bancária</button>
+                    <button type="button" class="m-btn" data-m="outro" aria-pressed="false"><svg viewBox="0 0 32 32"><path d="M16 3a13 13 0 0 0-11 19.800L3 29l6.400-2A13 13 0 1 0 16 3Z" fill="#25d366"/><path d="M11.500 10c.4-.8 1-.7 1.400-.6l.9 2.100c.1.300 0 .600-.2.900l-.6.700c.8 1.500 2 2.600 3.600 3.400l.8-.9c.2-.2.500-.3.800-.2l2 .9c.2.100.3.600 0 1.100-.5.900-1.500 1.400-2.600 1.200-3.300-.7-6.200-3.500-7-6.800-.1-.6.100-1.300.9-1.800Z" fill="#fff"/></svg>Outro método</button>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <ol class="steps" aria-label="Como doar">
+                <li><b>1</b>Escolha o método</li>
+                <li><b>2</b>Copie os dados</li>
+                <li><b>3</b>Transfira na sua app, fora deste site</li>
+                <li><b>4</b>Volte e toque em “Já fiz a minha doação”</li>
+            </ol>
+            <p class="steps-note">Atenção: tocar nesse botão é só um aviso. Não significa que o pagamento já foi verificado.</p>
+            <div class="pay" id="pay" aria-live="polite"></div>
+            <div class="thanks" id="thanks" tabindex="-1" aria-live="polite">
+                <h3>Obrigado por ajudar o Malik ❤️</h3>
+                <p>Se desejar, envie o comprovativo para a nossa equipa para registo e prestação de contas.</p>
+                <a class="btn-wa" id="wa-thanks" data-wa data-loc="thanks" href="#" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar comprovativo no WhatsApp</a>
+                <small>Registámos o seu aviso de que a transferência foi feita. Isto não significa que o pagamento já foi verificado: a nossa equipa confirma o recebimento manualmente.</small>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="wrap">
+            <h2>Perguntas frequentes</h2>
+            <details>
+                <summary>Posso escolher quanto doar?</summary>
+                <p>Sim. Cada pessoa decide quanto deseja contribuir para o Malik. Qualquer valor faz toda a diferença.</p>
+            </details>
+            <details>
+                <summary>Como faço a doação?</summary>
+                <p>Escolha um método, copie os dados, faça a transferência na sua aplicação (fora deste site) e volte para tocar em “Já fiz a minha doação”.</p>
+            </details>
+            <details>
+                <summary>O botão “Já fiz a minha doação” confirma o pagamento?</summary>
+                <p>Não. É apenas um aviso para a nossa equipa na Beira. O pagamento só é considerado após a verificação manual.</p>
+            </details>
+            <details>
+                <summary>Preciso de enviar o comprovativo?</summary>
+                <p>É opcional, mas ajuda muito no registo. Pode enviá-lo diretamente pelo WhatsApp da campanha.</p>
+            </details>
+        </div>
+    </section>
+
+    <section class="final">
+        <div class="wrap">
+            <div class="final-text">
+                <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="2.200" stroke-linejoin="round"><path d="M20 35S5 26 5 15c0-5 3.500-8 8-8 3 0 5.500 1.700 7 4.200C21.500 8.700 24 7 27 7c4.500 0 8 3 8 8 0 11-15 20-15 20Z"/></svg>
+                <div>Você não precisa conseguir mudar o mundo inteiro.<span>Pode começar mudando a vida do Malik.</span></div>
+            </div>
+            <div class="final-cta">
+                <a class="cta" href="#doar" data-go data-loc="final">
+        <svg class="heart" aria-hidden="true"><use href="#heart"/></svg>
+        Quero ajudar o Malik
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+                <p>Sua generosidade transforma vidas.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap">
+            <a class="brand" href="#inicio"><svg><use href="#logo"/></svg><span><b>JUNTOS</b><small>Por Malik</small></span></a>
+            <p>Obrigado por fazer parte desta causa solidária!</p>
+            <div class="soc" aria-label="Redes sociais">
+                <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.500c0-.7.200-1 1.200-1H17V2.200C16.600 2.100 15.500 2 14.400 2 11.900 2 10 3.500 10 6.200V8H7v3.500h3V22h4V11.500h2.800L17.300 8z"/></svg></a>
+                <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor"/></svg></a>
+                <a href="#" id="wa-footer" data-wa data-loc="footer" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0-7.700 13.600L3 21l4.500-1.200A9 9 0 1 0 12 3Z"/><path d="M9 8.500c.3-.5.700-.5 1-.4l.7 1.600c.1.200 0 .4-.1.600l-.5.500c.6 1.100 1.500 1.900 2.700 2.500l.6-.7c.2-.2.400-.2.600-.1l1.500.7c.2.100.2.500 0 .8-.4.700-1.100 1-1.900.9-2.400-.5-4.400-2.500-5-4.900-.1-.5.100-1 .4-1.500Z" fill="currentColor" stroke="none"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var CAMPAIGN = {
+            goal: 19000,
+            raised: 5340
+        };
+        var PAY = {
+            mpesa: {
+                title: "Doar por M-Pesa",
+                text: "Envie a sua doação para o número abaixo e guarde o comprovativo.",
+                value: "847837309",
+                name: "Nome do titular: Derson"
+            },
+            emola: {
+                title: "Doar por e-Mola",
+                text: "Envie a sua doação para o número abaixo e guarde o comprovativo.",
+                value: "862020682",
+                name: "Nome do titular: Johane"
+            },
+            banco: {
+                title: "Transferência bancária",
+                text: "Faça a transferência para a conta abaixo e envie o comprovativo.",
+                value: "NIB 000100000111982222457",
+                copy: "000100000111982222457",
+                name: "Banco e titular: BIM"
+            },
+            outro: {
+                title: "Outro método",
+                text: "Fale connosco no WhatsApp e combinamos a melhor forma de ajudar.",
+                value: "+258862020682",
+                name: "Contacto da campanha: Derson"
+            }
+        };
+
+        (function() {
+            "use strict";
+
+            var CFG = window.CONFIG || {};
+            var pixelOn = !!window.__metaPixelOn;
+            var utm = {};
+            var lastFire = {};
+            var currentMethod = null;
+            var lastUserMethod = null;
+
+            function throttle(key, ms) {
+                var n = Date.now();
+                if (lastFire[key] && n - lastFire[key] < ms) return false;
+                lastFire[key] = n;
+                return true;
+            }
+
+            function readUTM() {
+                var keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+                try {
+                    var q = new URLSearchParams(location.search),
+                        found = false;
+                    keys.forEach(function(k) {
+                        var v = q.get(k);
+                        if (v) {
+                            utm[k] = v.slice(0, 100);
+                            found = true;
+                        }
+                    });
+                    if (found) sessionStorage.setItem("utm_params", JSON.stringify(utm));
+                    else {
+                        var s = sessionStorage.getItem("utm_params");
+                        if (s) utm = JSON.parse(s);
+                    }
+                } catch (e) {}
+            }
+
+            function baseParams(extra) {
+                var p = {
+                    page_path: location.pathname
+                };
+                Object.keys(utm).forEach(function(k) {
+                    p[k] = utm[k];
+                });
+                if (extra) Object.keys(extra).forEach(function(k) {
+                    if (extra[k] !== null && extra[k] !== undefined) p[k] = extra[k];
+                });
+                return p;
+            }
+
+            function trackEvent(name, params, isCustom) {
+                if (CFG.debug) console.log("[pixel]", isCustom ? "trackCustom" : "track", name, params);
+                if (!pixelOn || typeof window.fbq !== "function") return;
+                try {
+                    isCustom ? window.fbq("trackCustom", name, params) : window.fbq("track", name, params);
+                } catch (e) {}
+            }
+
+            function trackViewContent() {
+                trackEvent("ViewContent", baseParams({
+                    content_name: "campanha_malik",
+                    content_category: "doacao"
+                }), false);
+            }
+
+            function trackDonationIntent(loc) {
+                if (!throttle("intent_" + loc, 1500)) return;
+                trackEvent("DonationIntent", baseParams({
+                    button: "quero_ajudar",
+                    button_location: loc,
+                    method: currentMethod,
+                    client_time: new Date().toISOString()
+                }), true);
+            }
+
+            function trackMethodSelection(m) {
+                trackEvent("DonationMethodSelected", baseParams({
+                    method: m
+                }), true);
+            }
+
+            function trackCopy(m) {
+                if (!throttle("copy_" + m, 1500)) return;
+                trackEvent("CopyDonationNumber", baseParams({
+                    method: m,
+                    location: "payment_panel"
+                }), true);
+            }
+
+            function trackDonateConfirmation(m) {
+                var sent = false;
+                try {
+                    sent = sessionStorage.getItem("donate_sent") === "1";
+                } catch (e) {
+                    sent = !!lastFire.__donate;
+                }
+                if (sent) return;
+                try {
+                    sessionStorage.setItem("donate_sent", "1");
+                } catch (e) {
+                    lastFire.__donate = 1;
+                }
+                trackEvent(CFG.confirmEvent || "Donate", baseParams({
+                    method: m,
+                    button_location: "payment_panel",
+                    client_time: new Date().toISOString()
+                }), false);
+            }
+
+            function trackContact(loc) {
+                if (!throttle("contact_" + loc, 1500)) return;
+                trackEvent("Contact", baseParams({
+                    method: "whatsapp",
+                    button_location: loc
+                }), false);
+            }
+
+            (function() {
+                var done = false;
+
+                function fire() {
+                    if (done) return;
+                    done = true;
+                    trackViewContent();
+                }
+                var sec = document.getElementById("sobre");
+                if ("IntersectionObserver" in window && sec) {
+                    var io = new IntersectionObserver(function(es) {
+                        es.forEach(function(e) {
+                            if (e.isIntersecting) {
+                                fire();
+                                io.disconnect();
+                            }
+                        });
+                    }, {
+                        threshold: 0.4
+                    });
+                    io.observe(sec);
+                } else {
+                    window.addEventListener("scroll", function h() {
+                        if (window.scrollY > 300) {
+                            fire();
+                            window.removeEventListener("scroll", h);
+                        }
+                    }, {
+                        passive: true
+                    });
+                }
+            })();
+
+            function fmt(n) {
+                return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " MT";
+            }
+
+            function waNumber() {
+                return String(PAY.outro.value || "").replace(/\D/g, "");
+            }
+
+            function waLink(msg) {
+                return "https://wa.me/" + waNumber() + "?text=" + encodeURIComponent(msg);
+            }
+
+            function methodLabel(k) {
+                return ({
+                    mpesa: "M-Pesa",
+                    emola: "e-Mola",
+                    banco: "transferência bancária",
+                    outro: "outro método"
+                })[k] || "outro método";
+            }
+
+            function copyText(text, node) {
+                return new Promise(function(resolve, reject) {
+                    function fallback() {
+                        try {
+                            var ta = document.createElement("textarea");
+                            ta.value = text;
+                            ta.setAttribute("readonly", "");
+                            ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;font-size:16px";
+                            document.body.appendChild(ta);
+                            ta.focus();
+                            ta.select();
+                            try {
+                                ta.setSelectionRange(0, text.length);
+                            } catch (e) {}
+                            var ok = document.execCommand("copy");
+                            document.body.removeChild(ta);
+                            ok ? resolve() : reject();
+                        } catch (e) {
+                            reject(e);
+                        }
+                    }
+                    try {
+                        if (navigator.clipboard && window.isSecureContext) {
+                            navigator.clipboard.writeText(text).then(resolve, fallback);
+                        } else fallback();
+                    } catch (e) {
+                        fallback();
+                    }
+                });
+            }
+
+            function selectNode(node) {
+                try {
+                    var r = document.createRange();
+                    r.selectNodeContents(node);
+                    var s = window.getSelection();
+                    s.removeAllRanges();
+                    s.addRange(r);
+                } catch (e) {}
+            }
+
+            var goal = Math.max(Number(CAMPAIGN.goal) || 0, 0);
+            var raised = Math.min(Math.max(Number(CAMPAIGN.raised) || 0, 0), goal);
+            var pct = goal ? Math.min(100, Math.round(raised / goal * 100)) : 0;
+            document.getElementById("goal").textContent = fmt(goal);
+            document.getElementById("raised").textContent = fmt(raised);
+            document.getElementById("left").textContent = fmt(goal - raised);
+            document.getElementById("pct").textContent = pct + "%";
+            document.querySelector(".bar").setAttribute("aria-valuenow", pct);
+            var fill = document.getElementById("fill");
+            requestAnimationFrame(function() {
+                setTimeout(function() {
+                    fill.style.width = pct + "%";
+                }, 250);
+            });
+
+            var pay = document.getElementById("pay");
+            var thanks = document.getElementById("thanks");
+            var btns = document.querySelectorAll(".m-btn");
+
+            function waAnchor(href, loc, label) {
+                var a = document.createElement("a");
+                a.className = "btn-wa";
+                a.href = href;
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.setAttribute("data-wa", "");
+                a.setAttribute("data-loc", loc);
+                a.innerHTML = '<svg aria-hidden="true"><use href="#wa"/></svg>';
+                a.appendChild(document.createTextNode(label));
+                return a;
+            }
+
+            function show(k) {
+                var d = PAY[k];
+                if (!d) return;
+                currentMethod = k;
+                thanks.classList.remove("show");
+                btns.forEach(function(b) {
+                    b.setAttribute("aria-pressed", b.dataset.m === k ? "true" : "false");
+                });
+                pay.innerHTML = "";
+
+                var h = document.createElement("h3");
+                h.textContent = d.title;
+                var p = document.createElement("p");
+                p.textContent = d.text;
+                var row = document.createElement("div");
+                row.className = "copy-row";
+                var c = document.createElement("code");
+                c.textContent = d.value;
+                var b = document.createElement("button");
+                b.type = "button";
+                b.textContent = "Copiar";
+                b.addEventListener("click", function() {
+                    trackCopy(k);
+                    copyText(d.copy || d.value).then(function() {
+                        b.textContent = "Copiado!";
+                        setTimeout(function() {
+                            b.textContent = "Copiar";
+                        }, 1800);
+                    }, function() {
+                        selectNode(c);
+                        b.textContent = "Selecione e copie";
+                        setTimeout(function() {
+                            b.textContent = "Copiar";
+                        }, 2500);
+                    });
+                });
+                row.appendChild(c);
+                row.appendChild(b);
+
+                pay.appendChild(h);
+                pay.appendChild(p);
+                pay.appendChild(row);
+
+                if (k === "outro") {
+                    var acts = document.createElement("div");
+                    acts.className = "pay-actions";
+                    acts.appendChild(waAnchor(waLink("Olá! Gostaria de ajudar a campanha do Malik. Pode indicar-me a melhor forma de doar?"), "outro_method", "Falar no WhatsApp"));
+                    pay.appendChild(acts);
+                }
+
+                var s = document.createElement("small");
+                s.textContent = d.name + " · Obrigado pela sua generosidade.";
+                pay.appendChild(s);
+
+                var conf = document.createElement("div");
+                conf.className = "confirm";
+                var cp = document.createElement("p");
+                cp.textContent = "Já fez a transferência na sua app? Avise-nos:";
+                var cb = document.createElement("button");
+                cb.type = "button";
+                cb.className = "btn-confirm";
+                cb.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.500l4.500 4.500L19 7.500"/></svg>';
+                cb.appendChild(document.createTextNode("Já fiz a minha doação"));
+                cb.addEventListener("click", function() {
+                    confirmDonation(k);
+                });
+                var cs = document.createElement("small");
+                cs.textContent = "Isto é só um aviso seu e não significa que o pagamento já foi verificado. A nossa equipa confirma o recebimento.";
+                conf.appendChild(cp);
+                conf.appendChild(cb);
+                conf.appendChild(cs);
+                pay.appendChild(conf);
+
+                pay.classList.add("show");
+            }
+
+            function confirmDonation(k) {
+                trackDonateConfirmation(k);
+                var wa = document.getElementById("wa-thanks");
+                wa.href = waLink("Olá! Acabei de fazer a minha doação para o Malik via " + methodLabel(k) + ". Segue o comprovativo.");
+                thanks.classList.add("show");
+                try {
+                    thanks.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                    thanks.focus({
+                        preventScroll: true
+                    });
+                } catch (e) {}
+            }
+
+            btns.forEach(function(b) {
+                b.addEventListener("click", function() {
+                    var k = b.dataset.m;
+                    show(k);
+                    lastUserMethod = k;
+                    trackMethodSelection(k);
+                });
+            });
+
+            document.querySelectorAll("[data-go]").forEach(function(a) {
+                a.addEventListener("click", function() {
+                    trackDonationIntent(a.getAttribute("data-loc") || "desconhecido");
+                    if (!pay.classList.contains("show")) setTimeout(function() {
+                        show("mpesa");
+                    }, 400);
+                });
+            });
+
+            var waFooter = document.getElementById("wa-footer");
+            if (waFooter) {
+                waFooter.href = waLink("Olá! Vi a campanha do Malik e gostaria de falar com a equipa.");
+                waFooter.target = "_blank";
+                waFooter.rel = "noopener noreferrer";
+            }
+            document.addEventListener("click", function(e) {
+                var a = e.target.closest ? e.target.closest("a[data-wa]") : null;
+                if (a) trackContact(a.getAttribute("data-loc") || "desconhecido");
+            });
+
+            readUTM();
+        })();
+    </script>
+</body>
+
+</html>
